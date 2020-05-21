@@ -35,3 +35,46 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
+
+defaultTasks("some-task")
+
+task projectTest {
+    println "project.name: ${project.name}"
+    println "project.allprojects: ${project.allprojects}"
+    println "project.defaultTasks: ${project.defaultTasks}"
+}
+
+
+//应用插件
+apply plugin: CustomPluginA
+//传入参数
+customA.extensionArgs = "我是外部传入的参数"
+
+/**
+ * 定义一个Extension类用来接收脚本传的参数
+ */
+class CustomExtensionA {
+    String extensionArgs = ""
+}
+/**
+ * 自定义插件示例
+ */
+class CustomPluginA implements Plugin<Project> {
+
+    @Override
+    void apply(Project target) {
+        //将Extension注册给Plugin
+        def extension = target.extensions.create('customA', CustomExtensionA)
+        //定义一个任务
+        target.task('CustomPluginTaskA') {
+            doLast {
+                println "接收外部参数：${extension.extensionArgs}"
+            }
+        }
+
+    }
+}
+
+
+
+
