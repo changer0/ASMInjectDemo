@@ -47,8 +47,8 @@ task projectTest {
 }
 
 
-//apply plugin: 'custom-plugin-demo'
-//customB.extensionArgs = "customB 外部传入参数"
+apply plugin: 'custom-plugin-demo'
+customC.extensionArgs = "customC 外部传入参数"
 
 import com.lulu.customplugin.CustomPluginB
 apply plugin: CustomPluginB
