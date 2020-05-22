@@ -2,8 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-apply plugin: 'custom-plugin-demo'
-customB.extensionArgs = "customB 外部传入参数"
+
 
 android {
     compileSdkVersion 29
@@ -47,6 +46,13 @@ task projectTest {
     println "project.defaultTasks: ${project.defaultTasks}"
 }
 
+
+//apply plugin: 'custom-plugin-demo'
+//customB.extensionArgs = "customB 外部传入参数"
+
+import com.lulu.customplugin.CustomPluginB
+apply plugin: CustomPluginB
+customB.extensionArgs = "customB 外部传入参数"
 
 
 //应用插件
