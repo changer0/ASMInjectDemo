@@ -11,6 +11,9 @@ dependencies {
     implementation gradleApi()
     //groovy sdk
     implementation localGroovy()
+    //添加 gradle
+    implementation 'com.android.tools.build:gradle:3.6.1'
+
 }
 
 group = 'com.lulu.customplugin'

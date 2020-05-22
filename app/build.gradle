@@ -46,6 +46,7 @@ task projectTest {
     println "project.defaultTasks: ${project.defaultTasks}"
 }
 
+apply plugin: 'asm-plugin-demo'
 
 apply plugin: 'custom-plugin-demo'
 customC.extensionArgs = "customC 外部传入参数"
