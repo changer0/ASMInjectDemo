@@ -5,11 +5,15 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+        flatDir {
+            dirs './repo/'
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        //引入自定义插件
+        classpath "com.lulu.customplugin:asmplugin:1.0.0"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -20,7 +24,9 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+        flatDir {
+            dirs './repo/'
+        }
     }
 }
 
