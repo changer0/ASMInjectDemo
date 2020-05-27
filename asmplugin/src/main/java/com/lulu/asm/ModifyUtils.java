@@ -80,7 +80,7 @@ public class ModifyUtils {
         return classBytesCode;
     }
 
-    static byte[] modifyClass(byte[] srcByteCode) {
+    private static byte[] modifyClass(byte[] srcByteCode) {
         ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_MAXS);
         ClassVisitor classVisitor = new CustomClassVisitor(classWriter);
         ClassReader classReader = new ClassReader(srcByteCode);
